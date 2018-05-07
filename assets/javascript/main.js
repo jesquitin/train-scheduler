@@ -76,10 +76,10 @@ return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYe
         var trainFrequent = childSnapshot.val().frequent;
   
   
-         // Declare variable
+         // Frequency variable
         var trainFrequent;
   
-            // Time is to be entered on the entry form
+            // Time to be entered
         var firstTime = 0;
   
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -87,27 +87,27 @@ return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYe
   
         // Current Time
         var currentTime = moment();
-          console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+          console.log("Current timeE: " + moment(currentTime).format("HH:mm"));
   
         // Difference between the times
         var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-          console.log("DIFFERENCE IN TIME: " + diffTime);
+          console.log("Time difference: " + diffTime);
   
-          // Time apart (remainder)
+          // Time time remaining
         var tRemainder = diffTime % trainFrequent;
-          console.log("Time Remaining  " + tRemainder);
+          console.log("Remaining time  " + tRemainder);
   
           // Minute Until Train
          var tMinutesTillTrain = trainFrequent - tRemainder;
-          console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+          console.log("Next train: " + tMinutesTillTrain);
   
           // Next Train
         var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-          console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
+          console.log("Arrival: " + moment(nextTrain).format("HH:mm"));
   
   
         // Add each train's data into the table
-        $("#disply-info> tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFrequent + 
+        $("#display-info> tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFrequent + 
          "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
       });
 
